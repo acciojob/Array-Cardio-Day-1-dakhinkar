@@ -47,8 +47,12 @@ export function map() {
 export function sort() {
       inventors = inventors|| [];
     
-       inventors.sort(function (x, y){ 
-                return y.year > x.year ? 1 : -1;
+       inventors.sort(function (a, b){ 
+           if(a.year > b.year) {
+                return 1;
+          } else {
+            return -1;
+          }
         });
 }
 
