@@ -102,3 +102,4 @@ export function reducedSum() {
     return dataAns;
     // Return an object containing transports as key and its number of occurances as the key's value
 }
+
