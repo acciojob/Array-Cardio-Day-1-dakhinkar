@@ -49,12 +49,6 @@ export function sort() {
            return [];
        }
        inventors.sort(function (x, y){ 
-             if(!y.year ){
-                        return 1;
-                }
-                if(!x.year){
-                        return -1;
-                }
                 return y.year - x.year;
         });
 }
