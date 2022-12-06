@@ -72,7 +72,7 @@ export function sortbylived() {
                 const xLived = x.passed - x.year;
                 const yLived = y.passed - y.year;
                 
-                return xLived > yLived ? 1 : -1;
+                return xLived > yLived ? -1 : 1;
         });
     return sortLived;
 }
@@ -83,7 +83,7 @@ export function sortByLastName() {
      let peopleData = people.sort(function (x, y) {
                 const [pF1, pL1] = x.split(', ');
                 const [pF2, pL2] = y.split(', ');
-                return pL1 > pL2 ? 1 : -1;
+                return pF1 > pF2 ? 1 : -1;
         });
     return peopleData;
     
