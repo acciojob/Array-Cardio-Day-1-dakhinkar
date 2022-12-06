@@ -47,13 +47,14 @@ export function map() {
 export function sort() {
       inventors = inventors|| [];
     
-       inventors.sort(function (a, b){ 
+     let sortData =  inventors.sort(function (a, b){ 
            if(a.year > b.year) {
                 return 1;
           } else {
             return -1;
           }
         });
+    return sortData;
 }
 
 
@@ -67,22 +68,24 @@ export function reduce() {
 
 // 5. Sort the inventors by years lived and return the sorted array
 export function sortbylived() {
-    inventors.sort(function (x,y) {
+   let sortLived =  inventors.sort(function (x,y) {
                 const xLived = x.passed - x.year;
                 const yLived = y.passed - y.year;
                 
                 return xLived > yLived ? 1 : -1;
         });
+    return sortLived;
 }
 
 // 6. sort Exercise
 // Sort the people alphabetically by last name and return the sorted array
 export function sortByLastName() {
-      people.sort(function (x, y) {
+     let peopleData = people.sort(function (x, y) {
                 const [pF1, pL1] = x.split(', ');
                 const [pF2, pL2] = y.split(', ');
                 return pL1 > pL2 ? 1 : -1;
         });
+    return peopleData;
     
 }
 
