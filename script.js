@@ -48,7 +48,7 @@ export function sort() {
       inventors = inventors|| [];
     
        inventors.sort(function (x, y){ 
-                return y.year - x.year;
+                return y.year > x.year ? 1 : -1;
         });
 }
 
@@ -64,7 +64,10 @@ export function reduce() {
 // 5. Sort the inventors by years lived and return the sorted array
 export function sortbylived() {
     inventors.sort(function (x,y) {
-                return (x.passed - x.year) - (y.passed - y.year);
+                const xLived = x.passed - x.year;
+                const yLived = y.passed - y.year;
+                
+                return xLived > yLived ? 1 : -1;
         });
 }
 
@@ -72,9 +75,9 @@ export function sortbylived() {
 // Sort the people alphabetically by last name and return the sorted array
 export function sortByLastName() {
       people.sort(function (x, y) {
-                const p1 = x.split(', ');
-                const p2 = y.split(', ');
-                return p1[1].localeCompare(p2[1]);
+                const [pF1, pL1] = x.split(', ');
+                const [pF2, pL2] = y.split(', ');
+                return pL1 > pL2 ? 1 : -1;
         });
     
 }
