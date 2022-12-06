@@ -29,21 +29,25 @@ const people = [
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's and return the filtered array
 export function myfilter() {
-
+    const inventorsData = inventors.filter((inventor) => inventor.year >= 1500 && inventor.year < 1600);
+    return inventorsData;
 }
 
 // Array.prototype.map()
 // 2. Give us an array of the inventor first and last names (i.e. full name)
 // Ex: For the first inventor the full name will be 'Albert Einstein'
 export function map() {
-
+   const inventorsData = inventors.map((inventor) => inventor.first + inventor.last);
+   return inventorsData;
 }
 
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest and return the sorted array
 export function sort() {
-
+       inventors.sort(function (x, y){ 
+                return y.year - x.year;
+        });
 }
 
 
@@ -51,18 +55,26 @@ export function sort() {
 // 4. How many years did all the inventors live?
 // Return the total number of years all the inventors lived
 export function reduce() {
-
+      const totalLive = inventors.reduce((acc, currValue) => acc + (currValue.passed- currValue.year), 0 );
+      return totalLive;
 }
 
 // 5. Sort the inventors by years lived and return the sorted array
 export function sortbylived() {
-
+    inventors.sort(function (x,y) {
+                return (x.passed - x.year) - (y.passed - y.year);
+        });
 }
 
 // 6. sort Exercise
 // Sort the people alphabetically by last name and return the sorted array
 export function sortByLastName() {
-
+      people.sort(function (x, y) {
+                const p1 = x.split(', ');
+                const p2 = y.split(', ');
+                return p1[1].localeCompare(p2[1]);
+        });
+    
 }
 
 // 7. Reduce Exercise
@@ -70,5 +82,14 @@ export function sortByLastName() {
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck', 'pogostick'];
 
 export function reducedSum() {
+      let dataAns = {};
+        data.forEach((ele) => {
+                if(dataAns[ele] == undefined || dataAns[ele] == null){
+                        dataAns[ele] = 1;
+                }else{
+                        dataAns[ele] = dataAns[ele] +1;
+                }
+        });
+    return dataAns;
     // Return an object containing transports as key and its number of occurances as the key's value
 }
